@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
 
     <!-- Title -->
-    <title>Library App</title>
+    <title><?= $data['judul']; ?> </title>
 
     <!-- Favicon -->
     <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
@@ -22,6 +22,7 @@
     <link href="css/mmenu.positioning.css" rel="stylesheet" type="text/css" />
 
     <!-- Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -29,97 +30,64 @@
 <body>
 
     <!-- Start: Header Section -->
-    <header id="header-v1" class="navbar-wrapper">
-        <div class="container">
-            <div class="row">
-                <nav class="navbar navbar-default">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="navbar-header">
-                                <div class="navbar-brand">
-                                    <h1>
-                                        <a href="index.html">
-                                            <img src="images/logomatana.png" alt="logomatana" />
-                                        </a>
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <!-- Header Topbar -->
-                            <div class="header-topbar hidden-sm hidden-xs">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="topbar-info">
-                                            <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+6281111111114</a>
-                                            <span>/</span>
-                                            <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@gatau.com</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="topbar-links">
-                                            <a href="signin.html"><i class="fa fa-lock"></i>Login / Register</a>
-                                            <span>|</span>
-                                            <div class="header-cart dropdown">
-                                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                    <small>0</small>
-                                                </a>
-                                                <div class="dropdown-menu cart-dropdown">
+    <header class="navbar-dark bg-dark">
 
-                                                    <ul>
-                                                        <li class="clearfix">
-                                                            <img src="images/header-cart-image-01.jpg" alt="cart item" />
-                                                            <div class="item-info">
-                                                                <div class="name">
-                                                                    <a href="#">Book Name</a>
-                                                                </div>
-                                                                <div class="author"><strong>Author:</strong> Geraldo Julius Halim</div>
-                                                            </div>
-                                                            <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="cart-buttons">
-                                                        <a href="rent.html" class="btn btn-dark-gray">Rent Book</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="navbar-collapse hidden-sm hidden-xs">
-                                <ul class="nav navbar-nav">
-                                    <li class="">
-                                        <a class="dropdown-toggle disabled" href="index.html">Home</a>
-                                    </li>
-                                    <li class="">
-                                        <a class="dropdown-toggle disabled" href="#books">Books</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- MOBILE -->
-                    <div class="mobile-menu hidden-lg hidden-md">
-                        <a href="#mobile-menu"><i class="fa fa-navicon"></i></a>
-                        <div id="mobile-menu">
-                            <ul>
-                                <li class="mobile-title">
-                                    <h4>Navigation</h4>
-                                    <a href="#" class="close"></a>
-                                </li>
+        <nav class="container navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="<?= BASEURL; ?>/home">PinjamBuku-Aja</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/home">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= BASEURL; ?>/book">Buku</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= BASEURL; ?>/about">Tentang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= BASEURL; ?>/contact">Hubungi</a>
+                        </li>
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li>
-                                    <a href="index.html">Home</a>
+                                    <hr class="dropdown-divider">
                                 </li>
-                                <li>
-                                    <a href="books-media-gird-view-v1.html">Books &amp; Media</a>
-                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </div>
-                    </div>
-                </nav>
+                        </li> -->
+                    </ul>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a href="signin.html" class="nav-link"><i class="fa fa-lock"></i> Login / Register</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link"> <i class="fa fa-shopping-cart"></i></a>
+                        </li>
+
+                    </ul>
+
+
+
+
+
+
+
+                </div>
             </div>
-        </div>
+            </div>
+            </div>
+        </nav>
     </header>
     <!-- End: Header Section -->
