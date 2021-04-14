@@ -1,6 +1,6 @@
 <div class="books-gird container" id="books">
     <div class="center-content">
-        <h2 class="section-title">Our Books</h2>
+        <h2 class="section-title">Popular Books</h2>
         <span class="underline center"></span>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
