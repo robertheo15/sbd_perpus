@@ -47,7 +47,7 @@
                             <a class="nav-link" href="<?= BASEURL; ?>/book">Buku</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= BASEURL; ?>/about">Tentang</a>
+                            <a class="nav-link" href="#footer">Tentang</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= BASEURL; ?>/contact">Hubungi</a>
@@ -65,18 +65,20 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li> -->
-                    </ul>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                         <li class="nav-item">
                             <a href="signin.html" class="nav-link"><i class="fa fa-lock"></i> Login / Register</a>
-
                         </li>
+                    </ul>
+                    <!--
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a href="" class="nav-link"> <i class="fa fa-shopping-cart"></i></a>
                         </li>
-
+                        <li class="nav-item">
+                                <a href="signin.html" class="nav-link"><i class="fa fa-lock"></i> Login / Register</a>
+                        </li>
                     </ul>
+                    -->
                 </div>
             </div>
             </div>
