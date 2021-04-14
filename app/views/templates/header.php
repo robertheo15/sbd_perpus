@@ -66,7 +66,7 @@
                             </ul>
                         </li> -->
                         <li class="nav-item">
-                            <a href="signin.html" class="nav-link"><i class="fa fa-lock"></i> Login / Register</a>
+                            <a href="<?= BASEURL; ?>/auth" class="nav-link"><i class="fa fa-lock"></i> Login / Register</a>
                         </li>
                     </ul>
                     <!--
