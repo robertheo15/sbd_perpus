@@ -1,68 +1,76 @@
 <?php
 
-class Database{
-    private $host = DB_HOST;
-    private $user = DB_USER;
-    private $pass = DB_PASS;
-    private $db_name = DB_NAME;
+class Database
+{
+    private $dbHost = DB_HOST;
+    private $dbUser = DB_USER;
+    private $dbPass = DB_PASS;
+    private $dbName = DB_NAME;
 
-    private $dbh; //database handler
-    private $stmt;//statement
+    private $dbHandler; //database handler
+    private $statement; //statement
 
-    public function __construct(){
+    public function __construct()
+    {
         //data source name
-        $dsn = "mysql:host={$this->host}; dbname={$this->db_name}";
+        $conn = "mysql:dbHost={$this->dbHost}; dbname={$this->dbName}";
 
-        $option = [
+        $options = [
             PDO::ATTR_PERSISTENT => true,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION 
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
 
-        try{
-            $this->dbh = new PDO($dsn, $this->user, $this->pass, $option);
-        }catch(PDOException $e){
-            die($e->getMessage()); 
+        try {
+            $this->dbHandler = new PDO($conn, $this->dbUser, $this->dbPass, $options);
+        } catch (PDOException $e) {
+            die($e->getMessage());
         }
     }
 
-    public function query($query){
-        $this->stmt = $this->dbh->prepare($query);
+    //Allows us to write queries
+    public function query($query)
+    {
+        $this->statement = $this->dbHandler->prepare($query);
     }
 
-    public function bind($param, $value, $type = null){
-        if( is_null($type) ){
-            switch( true ){
-                case is_int($value):
-                    $type = PDO::PARAM_INT;
-                    break;
-                case is_bool ($value):
-                    $type = PDO::PARAM_BOOL;
-                    break;
-                case is_null($value):
-                    $type = PDO::PARAM_NULL;
-                    break;
-                default:
-                    $type = PDO::PARAM_STR;
-            }
+    //Bind values
+    public function bind($param, $value, $type = null)
+    {
+        switch (is_null($type)) {
+            case is_int($value):
+                $type = PDO::PARAM_INT;
+                break;
+            case is_bool($value):
+                $type = PDO::PARAM_BOOL;
+                break;
+            case is_null($value):
+                $type = PDO::PARAM_NULL;
+                break;
+            default:
+                $type = PDO::PARAM_STR;
         }
-        $this->stmt->bindValue($param, $value, $type);
-    }
-    
-    public function execute(){
-        $this->stmt->execute();
+        $this->statement->bindValue($param, $value, $type);
     }
 
-    public function resultSet(){
+    public function execute()
+    {
+        $this->statement->execute();
+    }
+
+    public function resultSet()
+    {
         $this->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $this->statement->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function single(){
+    public function single()
+    {
         $this->execute();
-        return $this->stmt->fetch(PDO::FETCH_ASSOC);
+        return $this->statement->fetch(PDO::FETCH_OBJ);
     }
 
-    public function rowCount(){
-        return $this->stmt->rowCount();
+    public function rowCount()
+    {
+        return $this->statement->rowCount();
     }
 }
