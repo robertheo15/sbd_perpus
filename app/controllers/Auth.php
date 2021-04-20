@@ -149,13 +149,10 @@ class Auth extends Controller
 
   public function createUserSession($user)
   {
-    $_SESSION['id_user'] = $user->id;
+    $_SESSION['id_user'] = $user->id_user;
     $_SESSION['username'] = $user->username;
     $_SESSION['email'] = $user->email;
-
     var_dump($_SESSION);
-    // die;
-    // $data['judul'] = 'Beranda';
     header('location:' . BASEURL . '/index');
   }
 
@@ -164,6 +161,7 @@ class Auth extends Controller
     unset($_SESSION['id_user']);
     unset($_SESSION['username']);
     unset($_SESSION['email']);
+
 
     $data['judul'] = 'Beranda';
     header('location:' . BASEURL . '/index');
