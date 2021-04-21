@@ -7,6 +7,7 @@ class Book extends Controller
     $data['judul'] = 'Buku';
     // $data['nama'] = $this->model('User_model')->getUser();
     $this->view('templates/header', $data);
+    $this->view('home/search', $data);
     $this->view('book/index', $data);
     $this->view('templates/footer');
   }
