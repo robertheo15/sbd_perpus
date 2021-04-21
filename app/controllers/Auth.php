@@ -13,6 +13,8 @@ class Auth extends Controller
       'username' => '',
       'email' => '',
       'password' => '',
+      'firstName' => '',
+      'lastName' => '',
       'confirmPassword' => '',
       'usernameError' => '',
       'emailError' => '',
@@ -29,6 +31,8 @@ class Auth extends Controller
         'judul' => 'Daftar',
         'username' => trim($_POST['username']),
         'email' => trim($_POST['email']),
+        'firstName' => trim($_POST['firstName']),
+        'lastName' => trim($_POST['lastName']),
         'password' => trim($_POST['password']),
         'confirmPassword' => trim($_POST['confirmPassword']),
         'usernameError' => '',
@@ -36,7 +40,7 @@ class Auth extends Controller
         'passwordError' => '',
         'confirmPasswordError' => ''
       ];
-
+      var_dump($data);
       $nameValidation = "/^[a-zA-Z0-9]*$/";
       $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
 

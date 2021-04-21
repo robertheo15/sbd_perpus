@@ -15,7 +15,7 @@
         <?= $data['emailError']; ?>
       </span>
     </div>
-    <!-- <div class="mb-3">
+    <div class="mb-3">
       <label for="firstName" class="form-label">Nama depan</label>
       <input type="text" placeholder="Nama depan *" name="firstName" class="form-control" id="firstName">
       <span class="invalidFeedback">
@@ -29,7 +29,7 @@
         <?= $data['emailError']; ?>
       </span>
     </div>
-    <div class="mb-3">
+    <!--  <div class="mb-3">
       <label for="address" class="form-label">Alamat</label>
       <input type="text" placeholder="Alamat *" name="address" class="form-control" id="address">
       <span class="invalidFeedback">
