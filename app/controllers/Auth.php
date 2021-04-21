@@ -152,7 +152,7 @@ class Auth extends Controller
     $_SESSION['id_user'] = $user->id_user;
     $_SESSION['username'] = $user->username;
     $_SESSION['email'] = $user->email;
-    var_dump($_SESSION);
+
     header('location:' . BASEURL . '/index');
   }
 
