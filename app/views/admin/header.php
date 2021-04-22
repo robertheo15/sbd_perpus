@@ -18,7 +18,7 @@
 <body class="dark-edition">
   <div class="wrapper">
     <div class="sidebar" data-color="purple" data-background-color="black">
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <div class="logo"><a href="<?= BASEURL; ?>/index" class="simple-text logo-normal">
           PinjamBuku-Aja
         </a></div>
       <div class="sidebar-wrapper">
@@ -54,7 +54,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
+            <a class="nav-link" href="<?= BASEURL; ?>/auth/logout">
               <i class="material-icons">person</i>
               <p>Logout</p>
             </a>

@@ -109,6 +109,7 @@ class Auth extends Controller
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
       $data = [
         'judul' => 'Masuk',
+        'id_role' => '',
         'username' => trim($_POST['username']),
         'password' => trim($_POST['password']),
         'usernameError' => '',
@@ -154,15 +155,21 @@ class Auth extends Controller
   public function createUserSession($user)
   {
     $_SESSION['id_user'] = $user->id_user;
+    $_SESSION['id_role'] = $user->id_role;
     $_SESSION['username'] = $user->username;
     $_SESSION['email'] = $user->email;
 
-    header('location:' . BASEURL . '/index');
+    if ($_SESSION['id_role'] == '1') {
+      header('location:' . BASEURL . '/admin');
+    } else {
+      header('location:' . BASEURL . '/index');
+    }
   }
 
   public function logout()
   {
     unset($_SESSION['id_user']);
+    unset($_SESSION['id_role']);
     unset($_SESSION['username']);
     unset($_SESSION['email']);
 
