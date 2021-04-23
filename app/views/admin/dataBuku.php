@@ -18,6 +18,7 @@
                       <th>Quantity</th>
                       <th>Type</th>
                       <th>Price</th>
+                      <th>Action</th>
                     </thead>
                     <tbody>
                       <tr>
