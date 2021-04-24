@@ -24,31 +24,31 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="<?= BASEURL; ?>/Admin/index">
+            <a class="nav-link" href="<?= BASEURL; ?>/admin/index">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?= BASEURL; ?>/Admin/dataBuku">
+            <a class="nav-link" href="<?= BASEURL; ?>/admin/dataBuku">
               <i class="material-icons">library_books</i>
               <p>Data Buku</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?= BASEURL; ?>/Admin/dataMember">
+            <a class="nav-link" href="<?= BASEURL; ?>/admin/dataMember">
               <i class="material-icons">person</i>
               <p>Data Member</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?= BASEURL; ?>/Admin/dataPinjam">
+            <a class="nav-link" href="<?= BASEURL; ?>/admin/dataPinjam">
               <i class="material-icons">bubble_chart</i>
               <p>Data Peminjaman</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?= BASEURL; ?>/Admin/laporan">
+            <a class="nav-link" href="<?= BASEURL; ?>/admin/laporan">
               <i class="material-icons">content_paste</i>
               <p>Laporan</p>
             </a>
