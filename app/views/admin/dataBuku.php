@@ -6,7 +6,7 @@
              <h1 class="text-light">Daftar Buku</h1>
            </div>
            <div class="col-2">
-             <a class="btn btn-light" href="<?= BASEURL; ?>/admin/addBook">Tambah Produk</a>
+             <a class="btn btn-light" href="<?= BASEURL; ?>/admin/addBook">Tambah Buku</a>
              <!-- <form action="/admin/store" method="POST" autocomplete="off" enctype="multipart/form-data">
                   
                   </form> -->
@@ -39,8 +39,11 @@
                        <td>100.000</td>
                        <td>
                          <div class="row">
-                           <button type="button" class="btn btn-primary">edit</button>
-                           <button type="button" class="btn btn-danger">delete</button>
+                           <div class="col-12">
+                             <button type="button" class="btn btn-primary">edit</button>
+                             <button type="button" class="btn btn-danger">delete</button>
+                           </div>
+
                          </div>
                        </td>
                      </tr>
