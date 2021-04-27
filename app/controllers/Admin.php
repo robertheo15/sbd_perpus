@@ -47,4 +47,13 @@ class Admin extends Controller
         $this->view('admin/laporan', $data);
         $this->view('admin/footer', $data);
     }
+
+    public function addBook()
+    {
+        $data['judul'] = 'Report';
+        // $data['nama'] = $this->model('User_model')->getUser();
+        $this->view('admin/header', $data);
+        $this->view('admin/created_book', $data);
+        $this->view('admin/footer', $data);
+    }
 }
