@@ -38,8 +38,8 @@
                          <td>
                            <div class="row">
                              <div class="col-12">
-                               <button type="button" class="btn btn-primary">edit</button>
-                               <button type="button" class="btn btn-danger">delete</button>
+                               <a href="<?= BASEURL; ?>/admin/edit/<?= $book['id_book']; ?>" class="btn btn-primary">edit</a>
+                               <a href="<?= BASEURL; ?>/admin/delete/<?= $book['id_book']; ?>" class="btn btn-danger">hapus</a>
                              </div>
                            </div>
                          </td>

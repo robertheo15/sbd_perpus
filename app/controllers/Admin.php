@@ -102,4 +102,17 @@ class Admin extends Controller
         $this->view('admin/created_book', $data);
         $this->view('admin/footer', $data);
     }
+
+    public function delete($id_book)
+    {
+        if ($this->model('Book_model')->deleteDataBook($id_book) > 0) {
+            // Flasher::setFlash('berhasil', 'dihapus', 'success');
+            header('Location: ' . BASEURL . '/admin/dataBuku');
+            exit;
+        } else {
+            // Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('Location: ' . BASEURL . '/admin/dataBuku');
+            exit;
+        }
+    }
 }
