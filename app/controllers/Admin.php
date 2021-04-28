@@ -4,7 +4,7 @@ class Admin extends Controller
 {
     public function index()
     {
-        $data['judul'] = 'Dashboard';
+        $data['title'] = 'Dashboard';
         // $data['nama'] = $this->model('User_model')->getUser();
         $this->view('admin/header', $data);
         $this->view('admin/index', $data);
@@ -13,7 +13,7 @@ class Admin extends Controller
 
     public function dataMember()
     {
-        $data['judul'] = 'Data Member';
+        $data['title'] = 'Data Member';
         // $data['nama'] = $this->model('User_model')->getUser();
         $this->view('admin/header', $data);
         $this->view('admin/dataMember', $data);
@@ -22,7 +22,7 @@ class Admin extends Controller
 
     public function dataBuku()
     {
-        $data['judul'] = 'Data Buku';
+        $data['title'] = 'Data Buku';
         // $data['nama'] = $this->model('User_model')->getUser();
         $this->view('admin/header', $data);
         $this->view('admin/dataBuku', $data);
@@ -31,7 +31,7 @@ class Admin extends Controller
 
     public function dataPinjam()
     {
-        $data['judul'] = 'Data Peminjaman';
+        $data['title'] = 'Data Peminjaman';
         // $data['nama'] = $this->model('User_model')->getUser();
         $this->view('admin/header', $data);
         $this->view('admin/dataPeminjaman', $data);
@@ -41,7 +41,7 @@ class Admin extends Controller
 
     public function laporan()
     {
-        $data['judul'] = 'Report';
+        $data['title'] = 'Report';
         // $data['nama'] = $this->model('User_model')->getUser();
         $this->view('admin/header', $data);
         $this->view('admin/laporan', $data);
@@ -50,7 +50,7 @@ class Admin extends Controller
 
     public function addBook()
     {
-        $data['judul'] = 'Report';
+        $data['title'] = 'Report';
         // $data['nama'] = $this->model('User_model')->getUser();
         $this->view('admin/header', $data);
         $this->view('admin/created_book', $data);

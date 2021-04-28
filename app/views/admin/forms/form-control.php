@@ -1,5 +1,3 @@
-<form>
-
   <div class="mb-3">
     <label for="formFile" class="form-label">Images</label>
     <input class="form-control" type="file" id="formFile">
@@ -36,4 +34,3 @@
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
