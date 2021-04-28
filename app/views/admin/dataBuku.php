@@ -4,6 +4,7 @@
          <div class="row">
            <div class="col-10">
              <h1 class="text-light">Daftar Buku</h1>
+             <?php Flasher::flash(); ?>
            </div>
            <div class="col-2">
              <a class="btn btn-light" href="<?= BASEURL; ?>/admin/addBook">Tambah Buku</a>

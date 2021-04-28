@@ -106,11 +106,11 @@ class Admin extends Controller
     public function delete($id_book)
     {
         if ($this->model('Book_model')->deleteDataBook($id_book) > 0) {
-            // Flasher::setFlash('berhasil', 'dihapus', 'success');
+            Flasher::setFlash('berhasil', 'dihapus', 'success', 'Data Buku');
             header('Location: ' . BASEURL . '/admin/dataBuku');
             exit;
         } else {
-            // Flasher::setFlash('gagal', 'dihapus', 'danger');
+            Flasher::setFlash('gagal', 'dihapus', 'danger', 'Data Buku');
             header('Location: ' . BASEURL . '/admin/dataBuku');
             exit;
         }
