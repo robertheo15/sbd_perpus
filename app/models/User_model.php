@@ -1,6 +1,7 @@
 <?php
 class User_model
 {
+    private $table = 'users';
     private $db;
     public function __construct()
     {
@@ -9,7 +10,7 @@ class User_model
 
     public function register($data)
     {
-        $this->db->query("INSERT INTO users (id_user, id_role, username, email, password, register_date, first_name, last_name) 
+        $this->db->query("INSERT INTO " . $this->table . " (id_user, id_role, username, email, password, register_date, first_name, last_name) 
                             VALUES('', 2, :username, :email , :password, NOW(), '" . $data['firstName'] . "', '" . $data['lastName'] . "')");
 
         //Bind values
@@ -28,7 +29,7 @@ class User_model
 
     public function login($username, $password)
     {
-        $this->db->query("SELECT * FROM users WHERE username = :username");
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE username = :username");
 
         //Bind value
         $this->db->bind(':username', $username);
@@ -48,7 +49,7 @@ class User_model
     public function findUserByEmail($email)
     {
         //Prepared statement
-        $this->db->query('SELECT * FROM users WHERE email = :email');
+        $this->db->query('SELECT * FROM " . $this->table . " WHERE email = :email');
 
         //Email param will be binded with the email variable
         $this->db->bind(':email', $email);

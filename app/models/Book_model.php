@@ -24,13 +24,19 @@ class Book_model
 
   public function addDataBook($data)
   {
-    $query = "INSERT INTO " . $this->table . " VALUES (NULL, :nama, :nim, :email, :jurusan)";
+
+    $query = "INSERT INTO " . $this->table . "
+                  (id_book, name_picture, title_book, author_name, year_book, quantity, book_type, book_price)
+              VALUES ('', '', :titleBook, :authorName, :yearBook, :quantity, :bookType, :bookPrice)";
+
 
     $this->db->query($query);
-    $this->db->bind('nama', $data['nama']);
-    $this->db->bind('nim', $data['nim']);
-    $this->db->bind('email', $data['email']);
-    $this->db->bind('jurusan', $data['jurusan']);
+    $this->db->bind('titleBook', $data['titleBook']);
+    $this->db->bind('authorName', $data['authorName']);
+    $this->db->bind('yearBook', $data['yearBook']);
+    $this->db->bind('quantity', $data['quantity']);
+    $this->db->bind('bookType', $data['bookType']);
+    $this->db->bind('bookPrice', $data['bookPrice']);
 
     $this->db->execute();
     return $this->db->rowCount();
