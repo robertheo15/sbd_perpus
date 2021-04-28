@@ -72,10 +72,10 @@ class Admin extends Controller
             // Process form
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+            //'namePicture' => trim($_POST['namePicture']),
             $data = [
                 'judul' => 'Daftar',
-                'namePicture' => trim($_POST['namePicture']),
+
                 'titleBook' => trim($_POST['titleBook']),
                 'authorName' => trim($_POST['authorName']),
                 'yearBook' => trim($_POST['yearBook']),
@@ -84,6 +84,8 @@ class Admin extends Controller
                 'bookPrice' => trim($_POST['bookPrice']),
             ];
 
+            var_dump($data);
+            die;
             $nameValidation = "/^[a-zA-Z0-9]*$/";
 
 
@@ -97,11 +99,5 @@ class Admin extends Controller
         $this->view('admin/header', $data);
         $this->view('admin/created_book', $data);
         $this->view('admin/footer', $data);
-    }
-
-    public function checkSession()
-    {
-        if (!empty($_SESSION)) {
-        }
     }
 }
