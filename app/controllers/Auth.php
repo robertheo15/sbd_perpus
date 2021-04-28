@@ -173,9 +173,7 @@ class Auth extends Controller
     $_SESSION['email'] = $user->email;
 
     if ($_SESSION['id_role'] == '1') {
-      $this->view('templates/header', $data);
-      $this->view('auth/blocked');
-      $this->view('templates/footer');
+      header('location:' . BASEURL . '/admin');
     } else {
       header('location:' . BASEURL . '/index');
     }

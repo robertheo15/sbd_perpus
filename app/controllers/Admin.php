@@ -5,10 +5,7 @@ class Admin extends Controller
     public function __construct()
     {
         if ($_SESSION['id_role'] != '1') {
-            $data['title'] = 'Akses ditolak';
-            $this->view('templates/header', $data);
-            $this->view('auth/blocked');
-            $this->view('templates/footer');
+            header('location:' . BASEURL . '/index');
         }
     }
     public function index()
