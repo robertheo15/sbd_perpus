@@ -44,20 +44,36 @@
                             <a class="nav-link" href="#footer">Hubungi</a>
                         </li>
                         <?php if (!empty($_SESSION)) : ?>
-                            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <?= $_SESSION['username']; ?>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="#">Profil</a></li>
-                                            <li><a class="dropdown-item" href="<?= BASEURL; ?>/auth/logout">Logout</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-
+                            <?php if ($_SESSION['id_role'] == 1) : ?>
+                                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <?= $_SESSION['username']; ?>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                                <li><a class="dropdown-item" href="<?= BASEURL; ?>/admin">Admin</a></li>
+                                                <li><a class="dropdown-item" href="#">Profil</a></li>
+                                                <li><a class="dropdown-item" href="<?= BASEURL; ?>/auth/logout">Logout</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <?php else : ?>
+                                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <?= $_SESSION['username']; ?>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                                <li><a class="dropdown-item" href="#">Profil</a></li>
+                                                <li><a class="dropdown-item" href="<?= BASEURL; ?>/auth/logout">Logout</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
                         <?php else : ?>
                             <li class="nav-item">
                                 <a href="<?= BASEURL; ?>/auth/login" class="nav-link"><i class="fa fa-lock"></i> Login / Register</a>
