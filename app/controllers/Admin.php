@@ -7,6 +7,7 @@ class Admin extends Controller
         if ($_SESSION['id_role'] != '1') {
             header('location:' . BASEURL . '/index');
         }
+        $this->userModel = $this->model('Book_model');
     }
     public function index()
     {
@@ -29,10 +30,11 @@ class Admin extends Controller
     public function dataBuku()
     {
         $data['title'] = 'Data Buku';
-        // $data['nama'] = $this->model('User_model')->getUser();
+        $data['books'] = json_decode(json_encode($this->model('Book_model')->getAllBook()), true);
+
         $this->view('admin/header', $data);
         $this->view('admin/dataBuku', $data);
-        $this->view('admin/footer', $data);
+        $this->view('admin/footer');
     }
 
     public function dataPinjam()
@@ -89,12 +91,12 @@ class Admin extends Controller
             $nameValidation = "/^[a-zA-Z0-9]*$/";
 
 
-            //Validate username on letters/numbers
-            if (empty($data['username'])) {
-                $data['usernameError'] = 'Please enter username.';
-            } else if (!preg_match($nameValidation, $data['username'])) {
-                $data['usernameError'] = 'Name can only contain letters and numbers.';
-            }
+            // //Validate username on letters/numbers
+            // if (empty($data['username'])) {
+            //     $data['usernameError'] = 'Please enter username.';
+            // } else if (!preg_match($nameValidation, $data['username'])) {
+            //     $data['usernameError'] = 'Name can only contain letters and numbers.';
+            // }
         }
         $this->view('admin/header', $data);
         $this->view('admin/created_book', $data);

@@ -7,10 +7,6 @@
            </div>
            <div class="col-2">
              <a class="btn btn-light" href="<?= BASEURL; ?>/admin/addBook">Tambah Buku</a>
-             <!-- <form action="/admin/store" method="POST" autocomplete="off" enctype="multipart/form-data">
-                  
-                  </form> -->
-             <!-- <button type="button" class="btn btn-light">Tambah Buku</button> -->
            </div>
          </div>
          <div class="row">
@@ -19,34 +15,36 @@
                <div class="card-body table-responsive">
                  <table class="table table-hover">
                    <thead class="text-warning">
-                     <th>Book ID</th>
-                     <th>Title</th>
-                     <th>Author</th>
-                     <th>Year</th>
-                     <th>Quantity</th>
-                     <th>Type</th>
-                     <th>Price</th>
-                     <th>Action</th>
+                     <th>No id</th>
+                     <th>Gambar</th>
+                     <th>Judul buku</th>
+                     <th>Penulis</th>
+                     <th>Tahun</th>
+                     <th>Jumlah</th>
+                     <th>Harga</th>
+                     <th>Aksi</th>
                    </thead>
                    <tbody>
-                     <tr>
-                       <td>1</td>
-                       <td>Cara Mencari Pacar </td>
-                       <td>Jomblo Akut</td>
-                       <td>2021</td>
-                       <td>1</td>
-                       <td>Tutorial</td>
-                       <td>100.000</td>
-                       <td>
-                         <div class="row">
-                           <div class="col-12">
-                             <button type="button" class="btn btn-primary">edit</button>
-                             <button type="button" class="btn btn-danger">delete</button>
+                     <?php $i = 1;
+                      foreach ($data['books'] as $book) : ?>
+                       <tr>
+                         <td><?= $i++; ?></td>
+                         <td><?= $book['name_picture']; ?> </td>
+                         <td><?= $book['title_book']; ?></td>
+                         <td><?= $book['author_name']; ?></td>
+                         <td><?= $book['year_book']; ?></td>
+                         <td><?= $book['quantity']; ?></td>
+                         <td><?= $book['book_price']; ?></td>
+                         <td>
+                           <div class="row">
+                             <div class="col-12">
+                               <button type="button" class="btn btn-primary">edit</button>
+                               <button type="button" class="btn btn-danger">delete</button>
+                             </div>
                            </div>
-
-                         </div>
-                       </td>
-                     </tr>
+                         </td>
+                       <?php endforeach; ?>
+                       </tr>
                    </tbody>
                  </table>
                </div>
