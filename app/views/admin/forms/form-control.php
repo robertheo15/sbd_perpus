@@ -5,7 +5,7 @@
 
   <div class="mb-3">
     <label for="titleBook" class="form-label">Judul buku</label>
-    <input type="text" class="form-control" id="titleBook" name="titleBook">
+    <input type="text" class="form-control" id="titleBook" name="titleBook" required>
   </div>
 
   <div class="mb-3">
@@ -15,7 +15,7 @@
 
   <div class="mb-3">
     <label for="yearBook" class="form-label">Tahun terbit</label>
-    <input type="text" class="form-control" id="yearBook" name="yearBook">
+    <input type="date" class="form-control" id="yearBook" name="yearBook">
   </div>
 
   <div class="mb-3">

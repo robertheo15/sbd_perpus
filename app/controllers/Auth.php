@@ -185,9 +185,7 @@ class Auth extends Controller
     unset($_SESSION['id_role']);
     unset($_SESSION['username']);
     unset($_SESSION['email']);
-
-
-    $data['title'] = 'Beranda';
+    unset($_SESSION['flash']);
     header('location:' . BASEURL . '/index');
   }
 }

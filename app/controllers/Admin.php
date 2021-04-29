@@ -58,9 +58,18 @@ class Admin extends Controller
 
     public function addBook()
     {
-
         $data = [
-            'title' => 'Report',
+            'title' => 'Tambah Buku',
+        ];
+        $this->view('admin/header', $data);
+        $this->view('admin/created_book', $data);
+        $this->view('admin/footer', $data);
+    }
+
+    public function store()
+    {
+        $data = [
+            'title' => 'Tambah Buku',
             'namePicture' => '',
             'titleBook' => '',
             'authorName' => '',
@@ -68,16 +77,17 @@ class Admin extends Controller
             'quantity' => '',
             'bookType' => '',
             'bookPrice' => '',
+
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            //'namePicture' => trim($_POST['namePicture']),
-            $data = [
-                'judul' => 'Daftar',
 
+            $data = [
+                'title' => 'Tambah Buku',
+                //'namePicture' => trim($_POST['namePicture']),
                 'titleBook' => trim($_POST['titleBook']),
                 'authorName' => trim($_POST['authorName']),
                 'yearBook' => trim($_POST['yearBook']),
@@ -86,10 +96,7 @@ class Admin extends Controller
                 'bookPrice' => trim($_POST['bookPrice']),
             ];
 
-            var_dump($data);
-            die;
-            $nameValidation = "/^[a-zA-Z0-9]*$/";
-
+            // $nameValidation = "/^[a-zA-Z0-9]*$/";
 
             // //Validate username on letters/numbers
             // if (empty($data['username'])) {
@@ -98,9 +105,19 @@ class Admin extends Controller
             //     $data['usernameError'] = 'Name can only contain letters and numbers.';
             // }
         }
-        $this->view('admin/header', $data);
-        $this->view('admin/created_book', $data);
-        $this->view('admin/footer', $data);
+
+        var_dump($data);
+        var_dump($_SESSION);
+
+        if ($this->userModel->addDataBook($data) > 0) {
+            Flasher::setFlash('berhasil', 'ditambah', 'success', 'Data Buku');
+            header('Location: ' . BASEURL . '/admin/dataBuku');
+            exit();
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger', 'Data Buku');
+            header('Location: ' . BASEURL . '/admin/dataBuku');
+            exit;
+        }
     }
 
     public function delete($id_book)

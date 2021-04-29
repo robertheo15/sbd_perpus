@@ -21,6 +21,7 @@
                      <th>Judul buku</th>
                      <th>Penulis</th>
                      <th>Tahun</th>
+                     <th>Tipe buku</th>
                      <th>Jumlah</th>
                      <th>Harga</th>
                      <th>Aksi</th>
@@ -34,6 +35,7 @@
                          <td><?= $book['title_book']; ?></td>
                          <td><?= $book['author_name']; ?></td>
                          <td><?= $book['year_book']; ?></td>
+                         <td><?= $book['book_type']; ?></td>
                          <td><?= $book['quantity']; ?></td>
                          <td><?= $book['book_price']; ?></td>
                          <td>

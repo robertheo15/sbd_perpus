@@ -27,7 +27,7 @@ class Book_model
 
     $query = "INSERT INTO " . $this->table . "
                   (id_book, name_picture, title_book, author_name, year_book, quantity, book_type, book_price)
-              VALUES ('', '', :titleBook, :authorName, :yearBook, :quantity, :bookType, :bookPrice)";
+              VALUES ('', null, :titleBook, :authorName, :yearBook, :quantity, :bookType, :bookPrice)";
 
 
     $this->db->query($query);

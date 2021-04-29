@@ -9,7 +9,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
-            <form action="<?= BASEURL; ?>/admin/addBook" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <form action="<?= BASEURL; ?>/admin/store" method="POST" autocomplete="off" enctype="multipart/form-data">
               <?= include('forms/form-control.php'); ?>
             </form>
           </div>
