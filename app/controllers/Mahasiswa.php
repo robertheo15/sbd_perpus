@@ -71,4 +71,12 @@ class Mahasiswa extends Controller
         $this->view('mahasiswa/index', $data);
         $this->view('templates/footer');
     }
+
+    public function history()
+    {
+        $data['judul'] = 'History Peminjaman';
+        $this->view('templates/header', $data);
+        $this->view('mahasiswa/history', $data);
+        $this->view('templates/footer');
+    }
 }
