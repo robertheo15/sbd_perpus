@@ -53,18 +53,24 @@ class Book_model
   public function updateDataBook($data)
   {
     $query = "UPDATE  " . $this->table . " SET 
-                    nama= :nama,
-                    nim= :nim, 
-                    email= :email, 
-                    jurusan=:jurusan 
-                    WHERE id= :id";
+        name_picture='" . $data['namePicture'] . "',
+        title_book=:titleBook,
+        author_name=:authorName,
+        year_book=:yearBook,
+        quantity=:quantity,
+        book_type=:bookType,
+        book_price=:bookPrice
+      WHERE id_book =:idBook;
+      ";
 
     $this->db->query($query);
-    $this->db->bind('nama', $data['nama']);
-    $this->db->bind('nim', $data['nim']);
-    $this->db->bind('email', $data['email']);
-    $this->db->bind('jurusan', $data['jurusan']);
-    $this->db->bind('id', $data['id']);
+    $this->db->bind('idBook', $data['idBook']);
+    $this->db->bind('titleBook', $data['titleBook']);
+    $this->db->bind('authorName', $data['authorName']);
+    $this->db->bind('yearBook', $data['yearBook']);
+    $this->db->bind('quantity', $data['quantity']);
+    $this->db->bind('bookType', $data['bookType']);
+    $this->db->bind('bookPrice', $data['bookPrice']);
 
     $this->db->execute();
     return $this->db->rowCount();

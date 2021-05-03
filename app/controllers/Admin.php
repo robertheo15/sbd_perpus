@@ -68,25 +68,15 @@ class Admin extends Controller
 
     public function store()
     {
+
         $data = [
             'title' => 'Tambah Buku',
-            'namePicture' => '',
-            'titleBook' => '',
-            'authorName' => '',
-            'yearBook' => '',
-            'quantity' => '',
-            'bookType' => '',
-            'bookPrice' => '',
-
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            // var_dump($_POST);
-            // var_dump($_FILES);
-            // die;
             $data = [
                 'title' => 'Tambah Buku',
                 'namePicture' => trim($_FILES['formFile']['name']),
@@ -152,10 +142,73 @@ class Admin extends Controller
 
     public function detail($id_book)
     {
+        $data = [
+            'title' => 'Ubah Buku',
+        ];
         $data['books'] = json_decode(json_encode($this->model('Book_model')->getBookById($id_book)), true);;
-        var_dump($data);
-        die;
+        $_POST['id_book'] = $id_book;
+        $this->view('admin/header', $data);
+        $this->view('admin/edit_book', $data);
+        $this->view('admin/footer', $data);
     }
+
+    public function edit()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+                'title' => 'Tambah Buku',
+                'namePicture' => trim($_FILES['formFile']['name']),
+                'idBook' => trim($_POST['idBook']),
+                'titleBook' => trim($_POST['titleBook']),
+                'authorName' => trim($_POST['authorName']),
+                'yearBook' => trim($_POST['yearBook']),
+                'quantity' => trim($_POST['quantity']),
+                'bookType' => trim($_POST['bookType']),
+                'bookPrice' => trim($_POST['bookPrice']),
+            ];
+            $file = [
+                'fileTmpPath' => $_FILES['formFile']['tmp_name'],
+                'fileSize' => $_FILES['formFile']['size'],
+                'fileType' => $_FILES['formFile']['type'],
+                'fileNameCmps' => '',
+                'fileExtension' => '',
+            ];
+
+            $file['fileNameCmps'] = explode(".", $data['namePicture']);
+            $file['fileExtension'] = strtolower(end($file['fileNameCmps']));
+
+            $data['namePicture'] = md5(time() . $data['namePicture']) . '.' . $file['fileExtension'];
+
+            $allowedfileExtensions = array('jpg', 'gif', 'png');
+
+
+            if (in_array($file['fileExtension'], $allowedfileExtensions)) {
+                // directory in which the uploaded file will be moved
+                //BASEURL
+                $uploadFileDir = $_SERVER["DOCUMENT_ROOT"] . '/sbd_perpus/public/uploads/';
+                $destPath = $uploadFileDir . $data['namePicture'];
+
+                if (move_uploaded_file($file['fileTmpPath'], $destPath)) {
+                    echo "success";
+                }
+
+                if ($this->model('Book_model')->updateDataBook($data) > 0) {
+                    Flasher::setFlash('berhasil', 'diubah', 'success', 'Data Buku');
+                    header('Location: ' . BASEURL . '/admin/dataBuku');
+                    exit;
+                } else {
+                    Flasher::setFlash('gagal', 'diubah', 'danger', 'Data Buku');
+                    header('Location: ' . BASEURL . '/admin/dataBuku');
+                    exit;
+                }
+            }
+        }
+    }
+
 
     public function delete($id_book)
     {

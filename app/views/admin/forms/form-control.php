@@ -33,4 +33,4 @@
     <input type="text" class="form-control" id="bookPrice" name="bookPrice">
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Post</button>
