@@ -31,7 +31,7 @@
                       foreach ($data['books'] as $book) : ?>
                        <tr>
                          <td><?= $i++; ?></td>
-                         <td><?= $book['name_picture']; ?> </td>
+                         <td><img src="<?= BASEURL . '/uploads/' . $book['name_picture']; ?>" alt="dsa" width="75"></td>
                          <td><?= $book['title_book']; ?></td>
                          <td><?= $book['author_name']; ?></td>
                          <td><?= $book['year_book']; ?></td>
@@ -41,7 +41,7 @@
                          <td>
                            <div class="row">
                              <div class="col-12">
-                               <a href="<?= BASEURL; ?>/admin/edit/<?= $book['id_book']; ?>" class="btn btn-primary">edit</a>
+                               <a href="<?= BASEURL; ?>/admin/detail/<?= $book['id_book']; ?>" class="btn btn-primary">edit</a>
                                <a href="<?= BASEURL; ?>/admin/delete/<?= $book['id_book']; ?>" class="btn btn-danger">hapus</a>
                              </div>
                            </div>

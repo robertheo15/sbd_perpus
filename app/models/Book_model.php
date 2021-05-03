@@ -15,10 +15,10 @@ class Book_model
     return $this->db->resultSet();
   }
 
-  public function getBookById($id)
+  public function getBookById($id_book)
   {
-    $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
-    $this->db->bind('id', $id);
+    $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_book=:id_book');
+    $this->db->bind('id_book', $id_book);
     return $this->db->single();
   }
 
@@ -27,7 +27,7 @@ class Book_model
 
     $query = "INSERT INTO " . $this->table . "
                   (id_book, name_picture, title_book, author_name, year_book, quantity, book_type, book_price)
-              VALUES ('', null, :titleBook, :authorName, :yearBook, :quantity, :bookType, :bookPrice)";
+              VALUES ('', '" .  $data['namePicture'] . "', :titleBook, :authorName, :yearBook, :quantity, :bookType, :bookPrice)";
 
 
     $this->db->query($query);

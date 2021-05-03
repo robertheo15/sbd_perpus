@@ -1,7 +1,7 @@
-  <!-- <div class="mb-3">
+  <div class="mb-3">
     <label for="formFile" class="form-label">Foto cover</label>
-    <input class="form-control" type="file" id="formFile">
-  </div> -->
+    <input class="form-control" type="file" id="formFile" name="formFile">
+  </div>
 
   <div class="mb-3">
     <label for="titleBook" class="form-label">Judul buku</label>

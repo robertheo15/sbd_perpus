@@ -84,18 +84,48 @@ class Admin extends Controller
             // Process form
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+            // var_dump($_POST);
+            // var_dump($_FILES);
+            // die;
             $data = [
                 'title' => 'Tambah Buku',
-                //'namePicture' => trim($_POST['namePicture']),
+                'namePicture' => trim($_FILES['formFile']['name']),
                 'titleBook' => trim($_POST['titleBook']),
+
                 'authorName' => trim($_POST['authorName']),
                 'yearBook' => trim($_POST['yearBook']),
                 'quantity' => trim($_POST['quantity']),
                 'bookType' => trim($_POST['bookType']),
                 'bookPrice' => trim($_POST['bookPrice']),
             ];
+            $file = [
+                'fileTmpPath' => $_FILES['formFile']['tmp_name'],
+                'fileSize' => $_FILES['formFile']['size'],
+                'fileType' => $_FILES['formFile']['type'],
+                'fileNameCmps' => '',
+                'fileExtension' => '',
+            ];
 
+            $file['fileNameCmps'] = explode(".", $data['namePicture']);
+            $file['fileExtension'] = strtolower(end($file['fileNameCmps']));
+
+            $data['namePicture'] = md5(time() . $data['namePicture']) . '.' . $file['fileExtension'];
+
+            $allowedfileExtensions = array('jpg', 'gif', 'png');
+
+            if (in_array($file['fileExtension'], $allowedfileExtensions)) {
+                // directory in which the uploaded file will be moved
+                //BASEURL
+                $uploadFileDir = $_SERVER["DOCUMENT_ROOT"] . '/sbd_perpus/public/uploads/';
+                $destPath = $uploadFileDir . $data['namePicture'];
+
+                // var_dump($destPath);
+                // die;
+                if (move_uploaded_file($file['fileTmpPath'], $destPath)) {
+                    echo "success";
+                    // die;
+                }
+            }
             // $nameValidation = "/^[a-zA-Z0-9]*$/";
 
             // //Validate username on letters/numbers
@@ -106,8 +136,8 @@ class Admin extends Controller
             // }
         }
 
-        var_dump($data);
-        var_dump($_SESSION);
+        // var_dump($data);
+        // var_dump($_SESSION);
 
         if ($this->userModel->addDataBook($data) > 0) {
             Flasher::setFlash('berhasil', 'ditambah', 'success', 'Data Buku');
@@ -118,6 +148,13 @@ class Admin extends Controller
             header('Location: ' . BASEURL . '/admin/dataBuku');
             exit;
         }
+    }
+
+    public function detail($id_book)
+    {
+        $data['books'] = json_decode(json_encode($this->model('Book_model')->getBookById($id_book)), true);;
+        var_dump($data);
+        die;
     }
 
     public function delete($id_book)
