@@ -9,8 +9,7 @@
                     <i class="material-icons">content_copy</i>
                   </div>
                   <p class="card-category">TOTAL BUKU</p>
-                  <h3 class="card-title">0000
-                    <small>Books</small>
+                  <h3 class="card-title"><?= $data['totalBook']['COUNT(id_book)']; ?>
                   </h3>
                 </div>
                 <div class="card-footer">
@@ -27,7 +26,7 @@
                     <i class="material-icons">store</i>
                   </div>
                   <p class="card-category">TOTAL MEMBER</p>
-                  <h3 class="card-title">0000</h3>
+                  <h3 class="card-title"><?= $data['totalMember']['COUNT(id_user)']; ?></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -70,4 +69,4 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
