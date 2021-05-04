@@ -45,6 +45,19 @@ class User_model
         }
     }
 
+    public function getTotalUsers()
+    {
+        $query = "SELECT COUNT(id_user)  FROM " . $this->table . "";
+        $this->db->query($query);
+        return $this->db->single();
+    }
+
+    public function getAllUsers()
+    {
+        $this->db->query('SELECT * FROM ' . $this->table);
+        return $this->db->resultSet();
+    }
+
     //Find user by email. Email is passed in by the Controller.
     public function findUserByEmail($email)
     {
