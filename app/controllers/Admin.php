@@ -11,7 +11,11 @@ class Admin extends Controller
     }
     public function index()
     {
-        $data['title'] = 'Dashboard';
+        $data = [
+            'title' => 'Dashboard',
+            'totalMember' => json_decode(json_encode($this->model('User_model')->getTotalUsers()), true),
+            'totalBook' => json_decode(json_encode($this->userModel->getTotalBooks()), true),
+        ];
 
         $this->view('admin/header', $data);
         $this->view('admin/index', $data);
@@ -21,6 +25,7 @@ class Admin extends Controller
     public function dataMember()
     {
         $data['title'] = 'Data Member';
+        $data['users'] = json_decode(json_encode($this->model('User_model')->getAllUsers()), true);;;
 
         $this->view('admin/header', $data);
         $this->view('admin/dataMember', $data);
@@ -30,7 +35,7 @@ class Admin extends Controller
     public function dataBuku()
     {
         $data['title'] = 'Data Buku';
-        $data['books'] = json_decode(json_encode($this->model('Book_model')->getAllBook()), true);
+        $data['books'] = json_decode(json_encode($this->userModel->getAllBook()), true);;
 
         $this->view('admin/header', $data);
         $this->view('admin/dataBuku', $data);
@@ -116,18 +121,7 @@ class Admin extends Controller
                     // die;
                 }
             }
-            // $nameValidation = "/^[a-zA-Z0-9]*$/";
-
-            // //Validate username on letters/numbers
-            // if (empty($data['username'])) {
-            //     $data['usernameError'] = 'Please enter username.';
-            // } else if (!preg_match($nameValidation, $data['username'])) {
-            //     $data['usernameError'] = 'Name can only contain letters and numbers.';
-            // }
         }
-
-        // var_dump($data);
-        // var_dump($_SESSION);
 
         if ($this->userModel->addDataBook($data) > 0) {
             Flasher::setFlash('berhasil', 'ditambah', 'success', 'Data Buku');
