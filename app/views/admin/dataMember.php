@@ -14,25 +14,30 @@
                 <thead class="text-warning">
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Phone Number</th>
-                  <th>Address</th>
+                  <th>Username</th>
+                  <th>Role</th>
                   <th>Register Date</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Kenneth Liem </td>
-                    <td>0811202604</td>
-                    <td>Jl. Taman Teratai VII No.18/19</td>
-                    <td>19 Juni 2001</td>
-                    <td>
-                      <div class="row">
-                        <button type="button" class="btn btn-primary">edit</button>
-                        <button type="button" class="btn btn-danger">delete</button>
-                      </div>
-                    </td>
-                  </tr>
+                  <?php $i = 1;
+                  foreach ($data['users'] as $user) : ?>
+                    <tr>
+                      <td><?= $i++; ?></td>
+                      <td><?= $user['first_name'] . ' ' . $user['last_name']; ?></td>
+                      <td><?= $user['username']; ?></td>
+                      <td><?= $user['id_role']; ?></td>
+                      <td><?= $user['register_date']; ?></td>
+                      <td>
+                        <div class="row">
+                          <div class="col-12">
+                            <a href="#" class="btn btn-primary">edit</a>
+                            <a href="#" class="btn btn-danger ml-2">hapus</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>

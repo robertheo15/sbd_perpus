@@ -16,7 +16,7 @@
                <div class="card-body table-responsive">
                  <table class="table table-hover">
                    <thead class="text-warning">
-                     <th>No id</th>
+                     <th>No</th>
                      <th>Gambar</th>
                      <th>Judul buku</th>
                      <th>Penulis</th>
@@ -42,12 +42,12 @@
                            <div class="row">
                              <div class="col-12">
                                <a href="<?= BASEURL; ?>/admin/detail/<?= $book['id_book']; ?>" class="btn btn-primary">edit</a>
-                               <a href="<?= BASEURL; ?>/admin/delete/<?= $book['id_book']; ?>" class="btn btn-danger">hapus</a>
+                               <a href="<?= BASEURL; ?>/admin/delete/<?= $book['id_book']; ?>" class="btn btn-danger ml-2">hapus</a>
                              </div>
                            </div>
                          </td>
-                       <?php endforeach; ?>
                        </tr>
+                     <?php endforeach; ?>
                    </tbody>
                  </table>
                </div>

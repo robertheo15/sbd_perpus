@@ -24,37 +24,37 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
+          <li class="nav-item <?php if ($data['title'] == 'Dashboard') echo 'active'; ?>">
             <a class="nav-link" href="<?= BASEURL; ?>/admin/index">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php if ($data['title'] == 'Data Buku') echo 'active'; ?>">
             <a class="nav-link" href="<?= BASEURL; ?>/admin/dataBuku">
               <i class="material-icons">library_books</i>
               <p>Data Buku</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php if ($data['title'] == 'Data Member') echo 'active'; ?>">
             <a class="nav-link" href="<?= BASEURL; ?>/admin/dataMember">
               <i class="material-icons">person</i>
               <p>Data Member</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php if ($data['title'] == 'Data Peminjaman') echo 'active'; ?>">
             <a class="nav-link" href="<?= BASEURL; ?>/admin/dataPinjam">
               <i class="material-icons">bubble_chart</i>
               <p>Data Peminjaman</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php if ($data['title'] == 'Report') echo 'active'; ?>">
             <a class="nav-link" href="<?= BASEURL; ?>/admin/laporan">
               <i class="material-icons">content_paste</i>
               <p>Laporan</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="nav-link" href="<?= BASEURL; ?>/auth/logout">
               <i class="material-icons">person</i>
               <p>Logout</p>
