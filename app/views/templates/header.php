@@ -76,7 +76,7 @@
                             <?php endif; ?>
                         <?php else : ?>
                             <li class="nav-item">
-                                <a href="<?= BASEURL; ?>/auth/login" class="nav-link"><i class="fa fa-lock"></i> Login / Register</a>
+                                <a href="<?= BASEURL; ?>/auth/login" class="nav-link <?php if ($data['title'] == 'Masuk') echo 'active'; ?>"><i class="fa fa-lock"></i> Login / Register</a>
                             </li>
                         <?php endif; ?>
 
