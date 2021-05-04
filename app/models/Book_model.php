@@ -76,6 +76,13 @@ class Book_model
     return $this->db->rowCount();
   }
 
+  public function getTotalBooks()
+  {
+    $query = "SELECT COUNT(id_book)  FROM " . $this->table . "";
+    $this->db->query($query);
+    return $this->db->single();
+  }
+
   public function searchDataBook()
   {
     $keyword = $_POST['keyword'];
