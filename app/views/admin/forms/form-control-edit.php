@@ -1,5 +1,5 @@
   <div class="mb-3">
-    <input class="form-control" type="hidden" id="idBook" name="idBook" name="idBook" value="<?= $data['books']['id_book']; ?>">
+    <input class="form-control" type="hidden" id="idBook" name="idBook" value="<?= $data['books']['id_book']; ?>">
     <img src="<?= BASEURL . '/uploads/' . $data['books']['name_picture']; ?>" alt="dsa" width="75">
     <br>
     <label for="formFile" class="form-label">Foto cover</label>
