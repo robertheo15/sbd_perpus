@@ -25,7 +25,7 @@ class Admin extends Controller
     public function dataMember()
     {
         $data['title'] = 'Data Member';
-        $data['users'] = json_decode(json_encode($this->model('User_model')->getAllUsers()), true);;;
+        $data['users'] = json_decode(json_encode($this->model('User_model')->getAllUsers()), true);
 
         $this->view('admin/header', $data);
         $this->view('admin/dataMember', $data);
@@ -35,7 +35,7 @@ class Admin extends Controller
     public function dataBuku()
     {
         $data['title'] = 'Data Buku';
-        $data['books'] = json_decode(json_encode($this->userModel->getAllBook()), true);;
+        $data['books'] = json_decode(json_encode($this->userModel->getAllBook()), true);
 
         $this->view('admin/header', $data);
         $this->view('admin/dataBuku', $data);
@@ -114,11 +114,9 @@ class Admin extends Controller
                 $uploadFileDir = $_SERVER["DOCUMENT_ROOT"] . '/sbd_perpus/public/uploads/';
                 $destPath = $uploadFileDir . $data['namePicture'];
 
-                // var_dump($destPath);
-                // die;
+
                 if (move_uploaded_file($file['fileTmpPath'], $destPath)) {
                     echo "success";
-                    // die;
                 }
             }
         }
@@ -139,7 +137,7 @@ class Admin extends Controller
         $data = [
             'title' => 'Ubah Buku',
         ];
-        $data['books'] = json_decode(json_encode($this->model('Book_model')->getBookById($id_book)), true);;
+        $data['books'] = json_decode(json_encode($this->model('Book_model')->getBookById($id_book)), true);
         $_POST['id_book'] = $id_book;
         $this->view('admin/header', $data);
         $this->view('admin/edit_book', $data);
