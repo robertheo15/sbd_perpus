@@ -68,7 +68,7 @@
 <!-- End: Products Section -->
 
 <!-- Start: Social Network -->
-<section class="social-network section-padding">
+<!-- <section class="social-network section-padding">
   <div class="container">
     <div class="center-content">
       <h2 class="section-title">Follow Us</h2>
@@ -120,5 +120,5 @@
       </li>
     </ul>
   </div>
-</section>
+</section> -->
 <!-- End: Social Network -->

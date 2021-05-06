@@ -1,40 +1,20 @@
 <div class="container">
     <div class="books-gird">
         <ul>
-            <li>
-                <figure>
-                    <a href="">
-                        <img src="images/books-media/gird-view/book-media-grid-01.jpg" alt="Book">
-                    </a>
-                    <figcaption>
-                        <p><strong>The Great Gatsby</strong></p>
-                        <p><strong>Penulis:</strong> F. Scott Fitzgerald</p>
-                    </figcaption>
-                </figure>
-            </li>
-
-            <li>
-                <figure>
-                    <a href="">
-                        <img src="images/books-media/gird-view/book-media-grid-02.jpg" alt="Book">
-                    </a>
-                    <figcaption>
-                        <p><strong>The Great Gatsby</strong></p>
-                        <p><strong>Penulis:</strong> F. Scott Fitzgerald</p>
-                    </figcaption>
-                </figure>
-            </li>
-            <li>
-                <figure>
-                    <a href="">
-                        <img src="images/books-media/gird-view/book-media-grid-03.jpg" alt="Book">
-                    </a>
-                    <figcaption>
-                        <p><strong>The Great Gatsby</strong></p>
-                        <p><strong>Penulis</strong> F. Scott Fitzgerald</p>
-                    </figcaption>
-                </figure>
-            </li>
+            <?php foreach ($data['books'] as $book) : ?>
+                <li>
+                    <figure>
+                        <a href="">
+                            <img src="<?= BASEURL . '/uploads/' . $book['name_picture']; ?>" alt="Book">
+                        </a>
+                        <figcaption>
+                            <p><strong><?= $book['title_book']; ?></strong></p>
+                            <p><strong>Penulis:</strong> <?= $book['author_name']; ?></p>
+                            <p><strong>Tahun Rilis:</strong> <?= $book['year_book']; ?></p>
+                        </figcaption>
+                    </figure>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </div>
 </div>

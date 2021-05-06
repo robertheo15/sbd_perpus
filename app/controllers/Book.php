@@ -2,22 +2,28 @@
 
 class Book extends Controller
 {
+  public function __construct()
+  {
+    $this->userModel = $this->model('Book_model');
+  }
   public function index()
   {
     $data['title'] = 'Buku';
-    // $data['nama'] = $this->model('User_model')->getUser();
+    $data['books'] = json_decode(json_encode($this->userModel->getAllBook()), true);
+
     $this->view('templates/header', $data);
     $this->view('home/search', $data);
     $this->view('book/index', $data);
     $this->view('templates/footer');
   }
 
-  // public function detail($id)
-  // {
-  //   $data['judul'] = 'Detail Mahasiswa';
-  //   $data['mhs'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
-  //   $this->view('templates/header', $data);
-  //   $this->view('mahasiswa/detail', $data);
-  //   $this->view('templates/footer');
-  // }
+  public function detail()
+  {
+    $data['title'] = 'Detail Buku';
+    // $data['books'] = json_decode(json_encode($this->userModel->getBookById($id_book)), true);
+
+    $this->view('templates/header', $data);
+    $this->view('book/detail', $data);
+    $this->view('templates/footer');
+  }
 }
