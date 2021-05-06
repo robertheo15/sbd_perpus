@@ -4,7 +4,7 @@
             <?php foreach ($data['books'] as $book) : ?>
                 <li>
                     <figure>
-                        <a href="">
+                        <a href="<?= BASEURL . '/book/detail/' . $book['id_book'] ?>">
                             <img src="<?= BASEURL . '/uploads/' . $book['name_picture']; ?>" alt="Book">
                         </a>
                         <figcaption>

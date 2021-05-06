@@ -17,10 +17,10 @@ class Book extends Controller
     $this->view('templates/footer');
   }
 
-  public function detail()
+  public function detail($id_book)
   {
     $data['title'] = 'Detail Buku';
-    // $data['books'] = json_decode(json_encode($this->userModel->getBookById($id_book)), true);
+    $data['books'] = json_decode(json_encode($this->userModel->getBookById($id_book)), true);
 
     $this->view('templates/header', $data);
     $this->view('book/detail', $data);

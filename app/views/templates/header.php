@@ -35,7 +35,7 @@
                             <a class="nav-link <?php if ($data['title'] == 'Beranda') echo 'active'; ?>" aria-current="page" href="<?= BASEURL; ?>/home">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($data['title'] == 'Buku') echo 'active'; ?>" href="<?= BASEURL; ?>/book">Buku</a>
+                            <a class="nav-link <?php if ($data['title'] == 'Buku' || $data['title'] == 'Detail Buku') echo 'active'; ?>" href="<?= BASEURL; ?>/book">Buku</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#footer">Tentang</a>
