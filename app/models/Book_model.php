@@ -11,13 +11,15 @@ class Book_model
 
   public function getAllBook()
   {
-    $this->db->query('SELECT * FROM ' . $this->table);
+    $query = "SELECT * FROM $this->table";
+    $this->db->query($query);
     return $this->db->resultSet();
   }
 
   public function getBookById($id_book)
   {
-    $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_book=:id_book');
+    $query = "SELECT * FROM $this->table WHERE id_book=:id_book";
+    $this->db->query($query);
     $this->db->bind('id_book', $id_book);
     return $this->db->single();
   }
@@ -25,7 +27,7 @@ class Book_model
   public function addDataBook($data)
   {
 
-    $query = "INSERT INTO " . $this->table . "
+    $query = "INSERT INTO  $this->table 
                   (id_book, name_picture, title_book, author_name, year_book, quantity, book_type, book_price)
               VALUES ('', '" .  $data['namePicture'] . "', :titleBook, :authorName, :yearBook, :quantity, :bookType, :bookPrice)";
 
@@ -44,7 +46,7 @@ class Book_model
 
   public function deleteDataBook($id_book)
   {
-    $query = "DELETE FROM " . $this->table . " WHERE id_book=" . $id_book . "";
+    $query = "DELETE FROM $this->table WHERE id_book= $id_book ";
     $this->db->query($query);
     $this->db->execute();
     return $this->db->rowCount();
@@ -52,7 +54,7 @@ class Book_model
 
   public function updateDataBook($data)
   {
-    $query = "UPDATE  " . $this->table . " SET 
+    $query = "UPDATE   $this->table  SET 
         name_picture='" . $data['namePicture'] . "',
         title_book=:titleBook,
         author_name=:authorName,
@@ -78,7 +80,7 @@ class Book_model
 
   public function getTotalBooks()
   {
-    $query = "SELECT COUNT(id_book)  FROM " . $this->table . "";
+    $query = "SELECT COUNT(id_book) FROM $this->table";
     $this->db->query($query);
     return $this->db->single();
   }
