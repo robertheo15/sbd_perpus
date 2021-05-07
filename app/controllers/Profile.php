@@ -2,6 +2,16 @@
 
 class Profile extends Controller
 {
+  public function __construct()
+  {
+    if (empty($_SESSION)) {
+      $data['title'] = 'Akses ditolak';
+      $this->view('templates/header', $data);
+      $this->view('auth/blocked');
+      $this->view('templates/footer');
+    }
+  }
+
   public function index()
   {
     $data['title'] = 'Profile';
