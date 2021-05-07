@@ -63,11 +63,12 @@
                                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                                     <ul class="navbar-nav">
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle <?php if ($data['title'] == 'Profile' || $data['title'] == 'Riwayat') echo 'active'; ?>" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a class="nav-link dropdown-toggle <?php if ($data['title'] == 'Profile' || $data['title'] == 'Riwayat' || $data['title'] == 'Checkout') echo 'active'; ?>" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <?= $_SESSION['username']; ?>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                                 <li><a class="dropdown-item" href="<?= BASEURL; ?>/profile">Profil</a></li>
+                                                <li><a class="dropdown-item" href="<?= BASEURL; ?>/order">Order</a></li>
                                                 <li><a class="dropdown-item" href="<?= BASEURL; ?>/profile/history">Riwayat</a></li>
                                                 <li><a class="dropdown-item" href="<?= BASEURL; ?>/auth/logout">Logout</a></li>
                                             </ul>
