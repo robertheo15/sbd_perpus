@@ -5,7 +5,6 @@ class Home extends Controller
     public function index()
     {
         $data['title'] = 'Beranda';
-        // $data['nama'] = $this->model('User_model')->getUser();
         $this->view('templates/header', $data);
         $this->view('home/carousell', $data);
         $this->view('home/welcome', $data);

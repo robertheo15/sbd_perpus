@@ -16,9 +16,11 @@
                     <div class="optional-links">
                       <ul>
                         <li>
-                          <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart">
-                            <i class="fa fa-shopping-cart"></i>
-                          </a>
+                          <form action="<?= BASEURL; ?>/order/addToCart" method="POST" autocomplete="off">
+                            <input type="hidden" id="id_book" name="id_book" value="<?= $data['books']['id_book']; ?>">
+                            <button type="submit"><i class="fa fa-shopping-cart"></i></button>
+                            </a>
+                          </form>
                         </li>
                       </ul>
                     </div>

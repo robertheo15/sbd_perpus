@@ -6,6 +6,15 @@ class Auth extends Controller
     $this->userModel = $this->model('User_model');
   }
 
+  public function index()
+  {
+    if ($_SESSION['id_role'] == '1') {
+      header('location:' . BASEURL . '/admin');
+    } else {
+      header('location:' . BASEURL . '/index');
+    }
+  }
+
   public function register()
   {
     $data = [
@@ -101,6 +110,7 @@ class Auth extends Controller
           }
         }
       }
+      var_dump($_SESSION);
       $this->view('templates/header', $data);
       $this->view('auth/register', $data);
       $this->view('templates/footer');
@@ -109,7 +119,7 @@ class Auth extends Controller
 
   public function login()
   {
-    if (!empty($_SESSION)) {
+    if (!empty($_SESSION['id_role'])) {
       $data['title'] = 'Akses ditolak';
       $this->view('templates/header', $data);
       $this->view('auth/blocked');
@@ -159,6 +169,7 @@ class Auth extends Controller
           'passwordError' => ''
         ];
       }
+
       $this->view('templates/header', $data);
       $this->view('auth/login', $data);
       $this->view('templates/footer');
@@ -171,6 +182,7 @@ class Auth extends Controller
     $_SESSION['id_role'] = $user->id_role;
     $_SESSION['username'] = $user->username;
     $_SESSION['email'] = $user->email;
+
 
     if ($_SESSION['id_role'] == '1') {
       header('location:' . BASEURL . '/admin');
@@ -186,6 +198,7 @@ class Auth extends Controller
     unset($_SESSION['username']);
     unset($_SESSION['email']);
     unset($_SESSION['flash']);
+    unset($_SESSION['myArray']);
     header('location:' . BASEURL . '/index');
   }
 }
