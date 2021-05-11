@@ -110,7 +110,7 @@ class Auth extends Controller
           }
         }
       }
-      var_dump($_SESSION);
+      // var_dump($_SESSION);
       $this->view('templates/header', $data);
       $this->view('auth/register', $data);
       $this->view('templates/footer');

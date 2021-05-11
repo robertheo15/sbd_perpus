@@ -44,17 +44,22 @@ class Admin extends Controller
 
     public function dataPinjam()
     {
-        $data['title'] = 'Data Peminjaman';
+        $data = [
+            'title' => 'Data Peminjaman',
+            'books' => json_decode(json_encode($this->model('Report_model')->getAllRentLate()), true),
+        ];
 
         $this->view('admin/header', $data);
         $this->view('admin/dataPeminjaman', $data);
         $this->view('admin/footer', $data);
     }
 
-
     public function laporan()
     {
-        $data['title'] = 'Report';
+        $data = [
+            'title' => 'Report',
+            'reports' => json_decode(json_encode($this->model('Report_model')->getReport()), true),
+        ];
 
         $this->view('admin/header', $data);
         $this->view('admin/laporan', $data);
