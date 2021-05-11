@@ -60,6 +60,9 @@
                                     </ul>
                                 </div>
                             <?php else : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link<?php if ($data['title'] == 'Checkout') echo ' active'; ?>" href="<?= BASEURL; ?>/order">Checkout</a>
+                                </li>
                                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                                     <ul class="navbar-nav">
                                         <li class="nav-item dropdown">
