@@ -2,6 +2,7 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
+            <?php Flasher::flash(); ?>
             <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
               <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
@@ -41,7 +42,7 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title d-inline">About</h4>
-                  <a class="btn btn-light float-right" href="#">Tambah About</a>
+                  <a class="btn btn-light float-right" href="<?= BASEURL; ?>/admin/addAbout">Tambah About</a>
 
                 </div>
                 <div class="card-body table-responsive">
@@ -55,16 +56,19 @@
                       <th>Aksi</th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam deserunt inventore dolore nam exercitationem magnam impedit? Ratione eum architecto quidem enim tempore mollitia fuga voluptate magnam incidunt doloribus aliquam sint quisquam non harum, eveniet dolorum ipsam possimus in corrupti omnis. Modi eligendi veniam totam corporis commodi obcaecati assumenda dolores optio, quod sapiente fac</td>
-                        <td>4413</td>
-                        <td>26th June 2021</td>
-                        <td>29th June 2021</td>
-                        <td><a href="#" class="btn btn-primary">edit</a>
-                          <a href="#" class="btn btn-danger ml-2">hapus</a>
-                        </td>
-                      </tr>
+                      <?php $i = 1;
+                      foreach ($data['abouts'] as $about) : ?>
+                        <tr>
+                          <td><?= $i++; ?></td>
+                          <td><?= $about['info']; ?></td>
+                          <td><?= $about['address']; ?></td>
+                          <td><?= $about['email']; ?></td>
+                          <td><?= $about['phone']; ?></td>
+                          <td><a href="<?= BASEURL; ?>/admin/detailAbout/<?= $about['id_about']; ?>" class="btn btn-primary">edit</a>
+                            <a href="<?= BASEURL; ?>/admin/deleteAbout/<?= $about['id_about']; ?>" class="btn btn-danger ml-2">hapus</a>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
@@ -74,28 +78,32 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title d-inline">Social</h4>
-                  <a class="btn btn-light float-right" href="#">Tambah Social Media</a>
+                  <a class="btn btn-light float-right" href="<?= BASEURL; ?>/admin/addSocial">Tambah Social Media</a>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
                       <th>No</th>
                       <th>Url</th>
-                      <th>Icon</th>
+                      <th>Icon Class</th>
+                      <th>a Class</th>
                       <th>Usernane</th>
                       <th>Aksi</th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Kenneth Liem Hardadi</td>
-                        <td>4413</td>
-                        <td>26th June 2021</td>
-                        <td><a href="#" class="btn btn-primary">edit</a>
-                          <a href="#" class="btn btn-danger ml-2">hapus</a>
-                        </td>
-
-                      </tr>
+                      <?php $i = 1;
+                      foreach ($data['socials'] as $social) : ?>
+                        <tr>
+                          <td><?= $i++; ?></td>
+                          <td><?= $social['url']; ?></td>
+                          <td><?= $social['icon_class']; ?></td>
+                          <td><?= $social['a_class']; ?></td>
+                          <td><?= $social['username']; ?></td>
+                          <td><a href="<?= BASEURL; ?>/admin/detailSocial/<?= $social['id_social']; ?>" class="btn btn-primary">edit</a>
+                            <a href="<?= BASEURL; ?>/admin/deleteSocial/<?= $social['id_social']; ?>" class="btn btn-danger ml-2">hapus</a>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>

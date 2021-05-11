@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <form action="<?= BASEURL; ?>/admin/edit" method="POST" autocomplete="off" enctype="multipart/form-data">
-              <?= include('forms/form-control-edit.php'); ?>
+              <?= include('form-control-edit.php'); ?>
             </form>
           </div>
         </div>

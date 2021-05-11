@@ -28,13 +28,14 @@ class Auth extends Controller
       'usernameError' => '',
       'emailError' => '',
       'passwordError' => '',
-      'confirmPasswordError' => ''
+      'confirmPasswordError' => '',
+      'abouts' => json_decode(json_encode($this->model('About_model')->getAllAbout()), true)
     ];
     if (!empty($_SESSION)) {
       $data['title'] = 'Akses ditolak';
       $this->view('templates/header', $data);
       $this->view('auth/blocked');
-      $this->view('templates/footer');
+      $this->view('templates/footer', $data);
     } else {
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Process form
@@ -52,7 +53,8 @@ class Auth extends Controller
           'usernameError' => '',
           'emailError' => '',
           'passwordError' => '',
-          'confirmPasswordError' => ''
+          'confirmPasswordError' => '',
+          'abouts' => json_decode(json_encode($this->model('About_model')->getAllAbout()), true)
         ];
 
         $nameValidation = "/^[a-zA-Z0-9]*$/";
@@ -113,7 +115,7 @@ class Auth extends Controller
       // var_dump($_SESSION);
       $this->view('templates/header', $data);
       $this->view('auth/register', $data);
-      $this->view('templates/footer');
+      $this->view('templates/footer', $data);
     }
   }
 
@@ -121,9 +123,10 @@ class Auth extends Controller
   {
     if (!empty($_SESSION['id_role'])) {
       $data['title'] = 'Akses ditolak';
+      $data['abouts'] = json_decode(json_encode($this->model('About_model')->getAllAbout()), true);
       $this->view('templates/header', $data);
       $this->view('auth/blocked');
-      $this->view('templates/footer');
+      $this->view('templates/footer', $data);
     } else {
       //Check for post
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -136,16 +139,19 @@ class Auth extends Controller
           'password' => trim($_POST['password']),
           'usernameError' => '',
           'passwordError' => '',
+          // 'abouts' => json_decode(json_encode($this->model('About_model')->getAllAbout()), true)
         ];
 
         //Validate username
         if (empty($data['username'])) {
           $data['usernameError'] = 'Please enter a username.';
+          $data['abouts'] = json_decode(json_encode($this->model('About_model')->getAllAbout()), true);
         }
 
         //Validate password
         if (empty($data['password'])) {
           $data['passwordError'] = 'Please enter a password.';
+          $data['abouts'] = json_decode(json_encode($this->model('About_model')->getAllAbout()), true);
         }
 
         //Check if all errors are empty
@@ -157,7 +163,7 @@ class Auth extends Controller
             $data['passwordError'] = 'Password or username is incorrect. Please try again.';
             $this->view('templates/header', $data);
             $this->view('auth/login', $data);
-            $this->view('templates/footer');
+            $this->view('templates/footer', $data);
           }
         }
       } else {
@@ -166,13 +172,14 @@ class Auth extends Controller
           'username' => '',
           'password' => '',
           'usernameError' => '',
-          'passwordError' => ''
+          'passwordError' => '',
+          'abouts' => json_decode(json_encode($this->model('About_model')->getAllAbout()), true)
         ];
       }
 
       $this->view('templates/header', $data);
       $this->view('auth/login', $data);
-      $this->view('templates/footer');
+      $this->view('templates/footer', $data);
     }
   }
 

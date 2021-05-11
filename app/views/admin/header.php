@@ -24,7 +24,7 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item <?php if ($data['title'] == 'Dashboard') echo 'active'; ?>">
+          <li class="nav-item <?php if ($data['title'] == 'Dashboard' || $data['title'] == 'Detail About' || $data['title'] == 'Detail Social') echo 'active'; ?>">
             <a class="nav-link" href="<?= BASEURL; ?>/admin/index">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>

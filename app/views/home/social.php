@@ -7,34 +7,15 @@
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
     <ul>
-      <li>
-        <a class="facebook" href="#" target="_blank">
-          <span>
-            <i class="fa fa-facebook-f"></i>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="twitter" href="#" target="_blank">
-          <span>
-            <i class="fa fa-twitter"></i>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="linkedin" href="#" target="_blank">
-          <span>
-            <i class="fa fa-linkedin"></i>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="youtube" href="#" target="_blank">
-          <span>
-            <i class="fa fa-youtube"></i>
-          </span>
-        </a>
-      </li>
+      <?php foreach ($data['socials'] as $social) : ?>
+        <li>
+          <a class="<?= $social['a_class']; ?>" href="<?= $social['url']; ?>" target="_blank">
+            <span>
+              <i class="<?= $social['icon_class']; ?>"></i>
+            </span>
+          </a>
+        </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 </section>

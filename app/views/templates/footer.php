@@ -3,46 +3,49 @@
    <div class="container">
      <div id="footer-widgets">
        <div class="row">
-         <div class="col-md-6 col-sm-6 widget-container">
-           <div id="text-2" class="widget widget_text">
-             <h3 class="footer-widget-title">About Us</h3>
-             <span class="underline left"></span>
-             <div class="textwidget">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt modi facilis fugit, optio ex voluptatem perspiciatis magnam reprehenderit! Consequuntur iste illo ea unde nulla architecto amet delectus! Porro, fugiat cum.
-             </div>
-             <address>
-               <div class="info">
-                 <i class="fa fa-location-arrow"></i>
-                 <span>Jl. Gatau Apa ini masih prototype</span>
-               </div>
-               <div class="info">
-                 <i class="fa fa-envelope"></i>
-                 <span><a href="mailto:support@libraria.com">support@gatau.com</a></span>
-               </div>
-               <div class="info">
-                 <i class="fa fa-phone"></i>
-                 <span><a href="tel:012-345-6789">+ 628123123123</a></span>
-               </div>
-             </address>
-           </div>
-         </div>
-         <div class="col-md-6 col-sm-6 widget-container">
-           <div id="nav_menu-2" class="widget widget_nav_menu">
-             <h3 class="footer-widget-title">Quick Links</h3>
-             <span class="underline left"></span>
-             <div class="menu-quick-links-container">
-               <ul id="menu-quick-links" class="menu">
-                 <li><a href="#">List</a></li>
-                 <li><a href="#">List</a></li>
-                 <li><a href="#">List</a></li>
-                 <li><a href="#">List</a></li>
-                 <li><a href="#">List</a></li>
-                 <li><a href="#">List</a></li>
 
-               </ul>
+         <div class="col-md-6 col-sm-6 widget-container">
+           <?php foreach ($data['abouts'] as $about) : ?>
+             <div id="text-2" class="widget widget_text">
+               <h3 class="footer-widget-title">About Us</h3>
+               <span class="underline left"></span>
+               <div class="textwidget">
+                 <?= $about['info']; ?>
+               </div>
+               <address>
+                 <div class="info">
+                   <i class="fa fa-location-arrow"></i>
+                   <span><?= $about['address']; ?></span>
+                 </div>
+                 <div class="info">
+                   <i class="fa fa-envelope"></i>
+                   <span><a href="mailto:<?= $about['email']; ?>"><?= $about['email']; ?></a></span>
+                 </div>
+                 <div class="info">
+                   <i class="fa fa-phone"></i>
+                   <span><a href="tel:<?= $about['phone']; ?>">+ <?= $about['phone']; ?></a></span>
+                 </div>
+               </address>
              </div>
+         </div>
+       <?php endforeach; ?>
+       <div class="col-md-6 col-sm-6 widget-container">
+         <div id="nav_menu-2" class="widget widget_nav_menu">
+           <h3 class="footer-widget-title">Quick Links</h3>
+           <span class="underline left"></span>
+           <div class="menu-quick-links-container">
+             <ul id="menu-quick-links" class="menu">
+               <li><a href="#">List</a></li>
+               <li><a href="#">List</a></li>
+               <li><a href="#">List</a></li>
+               <li><a href="#">List</a></li>
+               <li><a href="#">List</a></li>
+               <li><a href="#">List</a></li>
+
+             </ul>
            </div>
          </div>
+       </div>
        </div>
      </div>
    </div>
