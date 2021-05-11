@@ -9,6 +9,7 @@ class Admin extends Controller
         }
         $this->userModel = $this->model('Book_model');
     }
+
     public function index()
     {
         $data = [
@@ -22,16 +23,26 @@ class Admin extends Controller
         $this->view('admin/footer', $data);
     }
 
+    public function detailAbout()
+    {
+    }
+
     public function editAbout()
     {
     }
+
     public function storeAbout()
+    {
+    }
+
+    public function detailSocial()
     {
     }
 
     public function editSocial()
     {
     }
+
     public function storeSocial()
     {
     }
