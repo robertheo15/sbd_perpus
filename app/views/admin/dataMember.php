@@ -12,7 +12,7 @@
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
-                  <th>ID</th>
+                  <th>No</th>
                   <th>Name</th>
                   <th>Username</th>
                   <th>Role</th>

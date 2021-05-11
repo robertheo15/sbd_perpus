@@ -2,7 +2,9 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-10"><h1 class="text-light">Laporan</h1></div>
+            <div class="col-10">
+              <h1 class="text-light">Laporan</h1>
+            </div>
             <div class="col-2"><button type="button" class="btn btn-light">Export</button></div>
           </div>
           <div class="row">
@@ -11,18 +13,25 @@
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
-                      <th>ID</th>
+                      <th>No</th>
                       <th>Name</th>
-                      <th>Book ID</th>
-                      <th>Book Title</th>
-                      <th>Date From</th>
-                      <th>Date To</th>
-                      <th>Charge</th>
+                      <th>Id buku</th>
+                      <th>Judul Buku</th>
+                      <th>Dari Tanggal</th>
+                      <th>Sampai Tanggal</th>
                     </thead>
                     <tbody>
-                      <tr>
-
-                      </tr>
+                      <?php $i = 1;
+                      foreach ($data['reports'] as $report) : ?>
+                        <tr>
+                          <td><?= $i++; ?></td>
+                          <td><?= $report['first_name'] . ' ' . $report['last_name']; ?></td>
+                          <td><?= $report['id_book']; ?></td>
+                          <td><?= $report['title_book']; ?></td>
+                          <td><?= $report['date_from']; ?></td>
+                          <td><?= $report['date_to']; ?></td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
@@ -32,4 +41,4 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
