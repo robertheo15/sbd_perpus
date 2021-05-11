@@ -19,24 +19,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Cara Mencari Pacar</td>
-                  <td>26 Juni 2021</td>
-                  <td>30 Juni 2021</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Cara Mencari Pacar Edisi 2</td>
-                  <td>26 Juni 2021</td>
-                  <td>30 Juni 2021</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Cara Mencari Pacar Edisi 3</td>
-                  <td>26 Juni 2021</td>
-                  <td>30 Juni 2021</td>
-                </tr>
+                <?php $i = 1;
+                foreach ($data['carts'] as $cart) :
+                ?>
+                  <tr>
+                    <th scope="row"><?= $i++;; ?></th>
+                    <td><?= $cart['title_book']; ?></td>
+                    <?php $date = date("Y-m-d");
+                    $newDate = strtotime("+7 day", strtotime($date)); ?>
+                    <td><?= $date ?></td>
+                    <td><?= date("Y-m-d", $newDate); ?></td>
+                  </tr>
+                <?php endforeach;
+                ?>
               </tbody>
             </table>
           </div>

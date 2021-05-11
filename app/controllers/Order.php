@@ -20,22 +20,35 @@ class Order extends Controller
 
   public function index()
   {
-    $data['title'] = 'Checkout';
 
-    $this->view('templates/header', $data);
-    $this->view('order/index', $data);
-    $this->view('templates/footer');
+    $data = [
+      'title' => 'Checkout',
+      'carts' => $_SESSION['myArray']
+    ];
+    if (empty($_SESSION['myArray'])) {
+      header('location:' . BASEURL . '/book');
+    } else {
+      $data['carts'] = json_decode(json_encode($this->model('Order_model')->getOrder($data['carts'])), true);
+
+      $this->view('templates/header', $data);
+      $this->view('order/index', $data);
+      $this->view('templates/footer');
+    }
   }
 
   public function checkout()
   {
 
-    $carts = $_SESSION['myArray'];
-    $this->model('Order_model')->setOrder($_SESSION['id_user']);
-    $idOrder = json_decode(json_encode($this->model('Order_model')->getOrderId()), true);
-    $this->model('Order_model')->setOrderDetail($carts, $idOrder);
-
-    die;
+    if (empty($_SESSION['myArray'])) {
+      header('location:' . BASEURL . '/book');
+    } else {
+      $carts = $_SESSION['myArray'];
+      $this->model('Order_model')->setOrder($_SESSION['id_user']);
+      $idOrder = json_decode(json_encode($this->model('Order_model')->getOrderId()), true);
+      $this->model('Order_model')->setOrderDetail($carts, $idOrder);
+      unset($_SESSION['myArray']);
+      header('Location: ' . BASEURL . '/profile/history');
+    }
   }
 
   public function addToCart()
@@ -47,6 +60,7 @@ class Order extends Controller
       }
       if (sizeof($_SESSION['myArray']) < 2) {
         $_SESSION['myArray'][] = $_POST['id_book'];
+        header('location:' . BASEURL . '/book/detail/' . $_POST['id_book']);
       }
       if (sizeof($_SESSION['myArray']) > 2) {
         echo 'maximal peminjaman 2 buku';

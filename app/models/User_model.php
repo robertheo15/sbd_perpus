@@ -11,7 +11,7 @@ class User_model
     public function register($data)
     {
         $query = "INSERT INTO  $this->table  (id_user, id_role, username, email, password, register_date, first_name, last_name) 
-        VALUES('', 2, :username, :email , :password, NOW(), '" . $data['firstName'] . "', '" . $data['lastName'] . "')";
+                    VALUES('', 2, :username, :email , :password, NOW(), '" . $data['firstName'] . "', '" . $data['lastName'] . "')";
         $this->db->query($query);
 
         //Bind values
@@ -59,6 +59,40 @@ class User_model
         $query = "SELECT * FROM $this->table";
         $this->db->query($query);
         return $this->db->resultSet();
+    }
+
+    public function getUser()
+    {
+        $query = "SELECT first_name, last_name, phone_number, address FROM $this->table
+                    WHERE id_user=" . $_SESSION['id_user'] . ";";
+
+        $this->db->query($query);
+        return $this->db->single();
+    }
+
+    public function editUser($data)
+    {
+        $query = "UPDATE  $this->table SET 
+                        first_name= '" . $data['firstName'] . "',
+                        last_name= '" . $data['lastName'] . "',  
+                        phone_number=" . $data['phoneNumber'] . ",
+                        address='" . $data['address'] . "',
+                        password='" . $data['password'] . "'
+                        WHERE id_user=" . $data['idUser'];
+
+        $this->db->query($query);
+        var_dump($query);
+        // die;
+        // $this->db->bind('first_name', $data['firstName']);
+        // $this->db->bind('last_name', $data['lastName']);
+        // $this->db->bind('phone_number', $data['phoneNumber']);
+        // $this->db->bind('address', $data['address']);
+        // $this->db->bind('id_user', $data['idUser']);
+
+        // var_dump($query);
+        // die;
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 
     //Find user by email. Email is passed in by the Controller.
