@@ -22,6 +22,20 @@ class Admin extends Controller
         $this->view('admin/footer', $data);
     }
 
+    public function editAbout()
+    {
+    }
+    public function storeAbout()
+    {
+    }
+
+    public function editSocial()
+    {
+    }
+    public function storeSocial()
+    {
+    }
+
     public function dataMember()
     {
         $data['title'] = 'Data Member';

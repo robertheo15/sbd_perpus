@@ -20,16 +20,6 @@ class Order_model
     return $data;
   }
 
-  // $this->db->query($query);
-  // return $this->db->single();
-  // $this->db->query($query);
-  // return $this->db->resultSet();
-
-  // $this->db->query($query);
-  // return $this->db->single();
-  // return $this->db->resultSet();
-  // }
-
   public function setOrder($id_user)
   {
     $query =  "INSERT INTO $this->table (id_order, id_user)

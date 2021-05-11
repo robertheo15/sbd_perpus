@@ -97,7 +97,10 @@ class Profile extends Controller
 
   public function history()
   {
-    $data['title'] = 'Riwayat';
+    $data = [
+      'title' => 'Riwayat',
+      'history' => json_decode(json_encode($this->model('Report_model')->getHistory()), true),
+    ];
 
     $this->view('templates/header', $data);
     $this->view('profile/history', $data);

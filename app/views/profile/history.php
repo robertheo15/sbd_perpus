@@ -13,77 +13,31 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th scope="col">No</th>
+                <th scope="col">No Order</th>
                 <th scope="col">Judul Buku</th>
                 <th scope="col">Tanggal Peminjaman</th>
+                <th scope="col">Deadline pengembalian</th>
                 <th scope="col">Dikembalikan tanggal</th>
                 <th scope="col">Denda</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Cara Mencari Pacar</td>
-                <td>26 Juni 2021</td>
-                <td>30 Juni 2021</td>
-                <td>Rp. 0,00</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Cara Mencari Pacar Edisi 2</td>
-                <td>26 Juni 2021</td>
-                <td>30 Juni 2021</td>
-                <td>Rp. 0,00</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Cara Mencari Pacar Edisi 3</td>
-                <td>26 Juni 2021</td>
-                <td>30 Juni 2021</td>
-                <td>Rp. 0,00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h4 class="my-3">Riwayat Peminjaman</h4>
-        <hr class="" />
-        <div class="table-responsive-sm">
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Judul Buku</th>
-                <th scope="col">Tanggal Peminjaman</th>
-                <th scope="col">Dikembalikan tanggal</th>
-                <th scope="col">Denda</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Cara Mencari Pacar</td>
-                <td>26 Juni 2021</td>
-                <td>30 Juni 2021</td>
-                <td>Rp. 0,00</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Cara Mencari Pacar Edisi 2</td>
-                <td>26 Juni 2021</td>
-                <td>30 Juni 2021</td>
-                <td>Rp. 0,00</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Cara Mencari Pacar Edisi 3</td>
-                <td>26 Juni 2021</td>
-                <td>30 Juni 2021</td>
-                <td>Rp. 0,00</td>
-              </tr>
+              <?php $i = 1;
+              foreach ($data['history'] as $history) : ?>
+                <tr>
+                  <th scope="row"><?= $history['id_order']; ?></th>
+                  <td><?= $history['title_book']; ?></td>
+                  <td><?= $history['date_from']; ?></td>
+                  <td><?= $history['date_to']; ?></td>
+                  <td>
+                    <?= $history['date_return']; ?></td>
+                  <td><?php if ($history['date_to'] <= date("Y-m-d")) {
+                        echo 'Rp10.000';
+                      } else {
+                        echo 'Rp0';
+                      } ?></td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

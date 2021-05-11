@@ -81,16 +81,7 @@ class User_model
                         WHERE id_user=" . $data['idUser'];
 
         $this->db->query($query);
-        var_dump($query);
-        // die;
-        // $this->db->bind('first_name', $data['firstName']);
-        // $this->db->bind('last_name', $data['lastName']);
-        // $this->db->bind('phone_number', $data['phoneNumber']);
-        // $this->db->bind('address', $data['address']);
-        // $this->db->bind('id_user', $data['idUser']);
 
-        // var_dump($query);
-        // die;
         $this->db->execute();
         return $this->db->rowCount();
     }
