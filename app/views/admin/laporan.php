@@ -5,7 +5,6 @@
             <div class="col-10">
               <h1 class="text-light">Laporan</h1>
             </div>
-            <div class="col-2"><button type="button" class="btn btn-light">Export</button></div>
           </div>
           <div class="row">
             <div class="col-lg-12 col-md-12">
