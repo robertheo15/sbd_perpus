@@ -72,7 +72,6 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                                 <li><a class="dropdown-item" href="<?= BASEURL; ?>/profile">Profil</a></li>
-                                                <li><a class="dropdown-item" href="<?= BASEURL; ?>/order">Order</a></li>
                                                 <li><a class="dropdown-item" href="<?= BASEURL; ?>/profile/history">Riwayat</a></li>
                                                 <li><a class="dropdown-item" href="<?= BASEURL; ?>/auth/logout">Logout</a></li>
                                             </ul>
